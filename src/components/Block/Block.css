@@ -1,0 +1,19 @@
+.block{
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    background-color: #2f3341;
+    border: 1px solid #171c21;
+    padding: 25px 20px;
+    border-radius: 15px;
+}
+.block__title{
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.block__content{
+    display: grid;
+    gap: 15px;
+}

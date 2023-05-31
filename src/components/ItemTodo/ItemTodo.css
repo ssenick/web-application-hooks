@@ -1,0 +1,19 @@
+.item-todo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    border:1px solid #000 ;
+}
+.item-todo__content{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: left;
+}
+.item-todo__result{
+    font-size: 22px;
+    white-space: nowrap;
+}

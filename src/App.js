@@ -5,18 +5,23 @@ import MyButton from "./components/UI/MyButton/MyButton";
 import useInput from "./hooks/useInput";
 import {useRef, useState} from "react";
 import useHover from "./hooks/useHover";
+import Todos from "./components/Todos/Todos";
 
 function App() {
+   // useInput
    const userNameInput = useInput('')
    const userPasswordInput = useInput('')
-   const [resultInputs,setResultInputs] = useState({user:'',password:''})
-   function setAllInputs (){
-      setResultInputs({user:userNameInput.value,password:userPasswordInput.value})
+   const [resultInputs, setResultInputs] = useState({user: '', password: ''})
+   function setAllInputs() {
+      setResultInputs({user: userNameInput.value, password: userPasswordInput.value})
    }
 
+   // useHover
    const ref = useRef();
    const isHovering = useHover(ref)
-   console.log(isHovering)
+
+   // useScroll/useInfinitePagination
+
 
    return (
       <div className="App">
@@ -30,6 +35,9 @@ function App() {
             </Block>
             <Block title='Hook: useHover'>
                <div ref={ref} className={isHovering ? "square square_hover" : "square "}>Hover me</div>
+            </Block>
+            <Block title='Hooks: useScroll/useInfinitePagination'>
+               <Todos/>
             </Block>
          </div>
       </div>

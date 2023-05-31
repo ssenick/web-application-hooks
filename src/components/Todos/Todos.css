@@ -1,0 +1,7 @@
+.todos{
+    display: grid;
+    gap: 15px;
+    height: 400px;
+    overflow: auto;
+
+}

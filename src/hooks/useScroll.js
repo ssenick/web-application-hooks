@@ -14,14 +14,14 @@ export default function useScroll(parentRef, childrenRaf, callback) {
       observer.current = new IntersectionObserver(([target]) => {
          if (target.isIntersecting) {
             console.log('isIntersecting');
-            callback()
+            callback();
          }
       }, options);
 
       observer.current.observe(childrenRaf.current)
 
       return function () {
-         observer.current.unobserve(childrenRaf.current)
+         observer.current.unobserve(childrenRaf.current);
       };
 
    }, [callback]);

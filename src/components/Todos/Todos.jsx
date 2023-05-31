@@ -9,6 +9,10 @@ const Todos = () => {
    const childrenRef = useRef();
    const [page, setPage] = useState(1);
    const limit = 15;
+   const intersected = useScroll(parentRef, childrenRef, () => {
+      fetchTodo(limit, page)
+   });
+
 
 
    function fetchTodo(limit, page) {
@@ -20,9 +24,7 @@ const Todos = () => {
          });
 
    }
-   const intersected = useScroll(parentRef, childrenRef, () => {
-      fetchTodo(limit, page)
-   })
+
 
    return (
       <div ref={parentRef} className="todos">

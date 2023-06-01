@@ -1,4 +1,4 @@
-
+@import "./components/UI/MyInput/MyInput.css";
 * {
     padding: 0;
     margin: 0;
@@ -117,4 +117,11 @@ h6 {
 }
 .square_hover{
     background-color: blue;
+}
+.subtitle{
+    font-size: 24px;
+    line-height: 1.3;
+}
+.subtitle span{
+    font-weight: 700;
 }

@@ -6,23 +6,47 @@ import useInput from "./hooks/useInput";
 import {useRef, useState} from "react";
 import useHover from "./hooks/useHover";
 import Todos from "./components/Todos/Todos";
+import useDebounce from "./hooks/useDebounce";
 
 function App() {
    // useInput
    const userNameInput = useInput('')
    const userPasswordInput = useInput('')
    const [resultInputs, setResultInputs] = useState({user: '', password: ''})
+
    function setAllInputs() {
-      setResultInputs({user: userNameInput.value, password: userPasswordInput.value})
+      setResultInputs({user: userNameInput.value, password: userPasswordInput.value});
    }
 
    // useHover
    const ref = useRef();
-   const isHovering = useHover(ref)
+   const isHovering = useHover(ref);
 
    // useScroll/useInfinitePagination
+   // in <Todos/>
 
 
+   // useDebounce
+   const [valueDebounce, setValueDebounce] = useState('');
+   const debouncedSearch = useDebounce(search, 500);
+   const [fetching, setFetching] = useState({status: false, value: 'No request!'})
+
+   function search(query) {
+      fetch(`https://jsonplaceholder.typicode.com/todos?query=${query}`)
+         .then(response => response.json())
+         .then(json => {
+            console.log(json);
+            setFetching({status: true, value: 'Request...!'})
+            setTimeout(() => {
+               setFetching({status: false, value: 'No request!'})
+            }, 501)
+         });
+   }
+
+   const onChange = (e) => {
+      setValueDebounce(e.target.value)
+      debouncedSearch(e.target.value)
+   }
    return (
       <div className="App">
          <div className="App__container">
@@ -38,6 +62,13 @@ function App() {
             </Block>
             <Block title='Hooks: useScroll/useInfinitePagination'>
                <Todos/>
+            </Block>
+            <Block title='Hooks: useDebounce'>
+               <h3 className="subtitle">Server request: {fetching.status
+                  ? <span style={{color: 'green'}}>{fetching.value}</span>
+                  : <span style={{color: 'red'}}>{fetching.value}</span>}
+               </h3>
+               <input onChange={onChange} value={valueDebounce} className="input" type="text"/>
             </Block>
          </div>
       </div>

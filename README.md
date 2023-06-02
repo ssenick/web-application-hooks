@@ -1,9 +1,6 @@
-
-DEMO: web-application-hooks.ssenick.fun
-
-
 # Getting Started with Create React App
 
+DEMO: https://web-application-hooks.ssenick.fun
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

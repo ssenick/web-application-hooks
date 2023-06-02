@@ -125,3 +125,8 @@ h6 {
 .subtitle span{
     font-weight: 700;
 }
+.loading,.error{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}

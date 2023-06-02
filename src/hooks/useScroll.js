@@ -14,6 +14,7 @@ export default function useScroll(parentRef, childrenRaf, callback) {
       observer.current = new IntersectionObserver(([target]) => {
          if (target.isIntersecting) {
             console.log('isIntersecting');
+
             callback();
          }
       }, options);
